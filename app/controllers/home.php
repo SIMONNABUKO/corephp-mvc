@@ -3,7 +3,9 @@ class Home extends Controller
 {
 
     public function index(){
-        $this->view('home');
+        $db = new Database();
+        $data = $db->read('select * from images');
+        $this->view('home', $data);
     }
  
 }
